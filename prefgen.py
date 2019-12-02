@@ -31,7 +31,7 @@ def generate1(n, k, p):
     p = list(p.values())
 
     for _ in range(n):
-        preferences.append(choice(choices, replace=False, p=p, size=k))
+        preferences.append(list(choice(choices, replace=False, p=p, size=k)))
 
     return preferences
 
@@ -62,7 +62,7 @@ def generate2(n, k, preferences, p):
 
         if len(choices) > 0:
             new_preferences.append(
-                choice(list(choices), replace=False, p=prob, size=len(choices))
+                list(choice(list(choices), replace=False, p=prob, size=len(choices)))
             )
         else:
             new_preferences.append([])
@@ -70,23 +70,24 @@ def generate2(n, k, preferences, p):
     return new_preferences
 
 
-if __name__ == "__main__":
+def get_preferences(n, k):
 
-    n = 100
-    k = 5
     delta = 2
     p = exp_prob(n, delta)
 
-    print("First side:")
+    prefs1 = generate1(n, k, p)
+    prefs2 = generate2(n, k, prefs1, p)
 
-    result = generate1(n, k, p)
+    pref_dict1 = {agent: prefs for agent, prefs in enumerate(prefs1)}
+    pref_dict2 = {agent: prefs for agent, prefs in enumerate(prefs2)}
 
-    for pref in result:
-        print(pref)
+    return pref_dict1, pref_dict2
 
-    print("\nSecond side:")
 
-    result2 = generate2(n, k, result, p)
+if __name__ == "__main__":
 
-    for choices in result2:
-        print(choices)
+    n = 10
+    k = 5
+
+    preferences = get_preferences(n, k)
+    print(preferences)
