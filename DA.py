@@ -21,24 +21,27 @@ function stable_matching {
 
 # THIS DESTROYES MALE_PREFS!!
 def deferred_acceptance(male_prefs, female_prefs):
+    # copy to avoid destrcuction
+    male_prefs_copy = male_prefs
+
     # Initialize all male and female to free
     #matches = {}
     male_matches = {}
     female_matches = {}
     # while ∃ unmatched male who still has a female to propose to 
     while True:
-        unmatched_males = [male for male in male_prefs.keys() if male not in male_matches]
+        unmatched_males = [male for male in male_prefs_copy.keys() if male not in male_matches]
         print("Unmatched_males: ", unmatched_males)
         if unmatched_males == []:
             # end of the algorithm
             break
         for male in unmatched_males:
             # if no more females to propose to, this male is permanently unmatched. 
-            if (male_prefs[male] == []):
+            if (male_prefs_copy[male] == []):
                 male_matches[male] = "NA"
                 break
             # propose to the most preferred female and update the male's preference
-            female = male_prefs[male].pop(0)
+            female = male_prefs_copy[male].pop(0)
 
             print('Trying %s with %s... ' % (male, female), end='')
 
