@@ -62,8 +62,7 @@ def generate2(n, k, preferences, p):
 
         if len(choices) > 0:
             new_preferences.append(
-                choice(list(choices), replace=False,
-                       p=prob, size=len(choices))
+                choice(list(choices), replace=False, p=prob, size=len(choices))
             )
         else:
             new_preferences.append([])

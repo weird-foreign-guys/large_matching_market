@@ -4,5 +4,5 @@ from useful_deviation import count_useful_deviatiors
 
 # generate male_prefs and female_prefs
 
-#useful_deviators_cnt = count_useful_deviatiors(male_prefs, female_prefs)
-#ratio = useful_deviators_cnt/n
+# useful_deviators_cnt = count_useful_deviatiors(male_prefs, female_prefs)
+# ratio = useful_deviators_cnt/n

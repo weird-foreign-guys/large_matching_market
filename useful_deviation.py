@@ -27,7 +27,9 @@ def count_useful_deviatiors(male_prefs, female_prefs):
         while female_prefs_d[female] != []:
             female_prefs_d[female] = female_prefs_d[female][:-1]
             matching_d = deferred_acceptance(male_prefs, female_prefs_d)
-            if(useful_deviation(truthful_match, matching_d, female, female_prefs[female])):
+            if useful_deviation(
+                truthful_match, matching_d, female, female_prefs[female]
+            ):
                 count += 1
                 break
     return count
@@ -45,4 +47,6 @@ def useful_deviation(truthful_match, deviated_match, deviator, proposed_prefs):
         # if truthful gives no match and deviation gives a match, it is a useful deviation
         return True
     else:
-        return (preference_order.index(truthful_match[deviator]) > preference_order.index(deviated_match[deviator]))
+        return preference_order.index(
+            truthful_match[deviator]
+        ) > preference_order.index(deviated_match[deviator])
