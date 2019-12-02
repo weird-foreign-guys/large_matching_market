@@ -26,14 +26,14 @@ def lin_prob(n):
 
 
 def generate1(n, k, p):
-    res = []
+    preferences = []
     choices = [i for i in range(n)]
     p = list(p.values())
 
     for _ in range(n):
-        res.append(choice(choices, replace=False, p=p, size=k))
+        preferences.append(choice(choices, replace=False, p=p, size=k))
 
-    return res
+    return preferences
 
 
 def generate2(n, k, preferences, p):
