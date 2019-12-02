@@ -1,6 +1,5 @@
-""" This code implements the deferred acceptance algorithm by Gale and Shapley (1962).
-The implementation is based on Cristi Burcà (2015) https://gist.github.com/scribu."""
-
+""" This code implements the deferred acceptance algorithm by Gale and Shapley (1962)."""
+from copy import deepcopy
 
 """
 function stable_matching {
@@ -22,7 +21,7 @@ function stable_matching {
 # THIS DESTROYES MALE_PREFS!!
 def deferred_acceptance(male_prefs, female_prefs):
     # copy to avoid destrcuction
-    male_prefs_copy = male_prefs
+    male_prefs_copy = deepcopy(male_prefs)
 
     # Initialize all male and female to free
     # matches = {}
@@ -82,6 +81,8 @@ def deferred_acceptance(male_prefs, female_prefs):
     return male_matches
 
 
+# TODO; delete the test
+"""The test implementation is based on Cristi Burcà (2015) https://gist.github.com/scribu."""
 def test_popularity_contest():
     """Every male has the same preferences as every other male; same for females."""
     FEMALES = ["F1", "F2", "F3"]
