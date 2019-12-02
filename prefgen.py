@@ -78,8 +78,8 @@ def get_preferences(n, k):
     prefs1 = generate1(n, k, p)
     prefs2 = generate2(n, k, prefs1, p)
 
-    pref_dict1 = {agent: prefs for agent, prefs in enumerate(prefs1)}
-    pref_dict2 = {agent: prefs for agent, prefs in enumerate(prefs2)}
+    pref_dict1 = {agent: list(prefs) for agent, prefs in enumerate(prefs1)}
+    pref_dict2 = {agent: list(prefs) for agent, prefs in enumerate(prefs2)}
 
     return pref_dict1, pref_dict2
 
