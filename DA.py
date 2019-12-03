@@ -113,9 +113,9 @@ def test_cycle():
     print("{'M1': 'F2', 'M2': 'F1'}")
     # assert matches == {'M1': 'F2', 'M2': 'F1'}
 
-
+"""
 if __name__ == "__main__":
     #test_popularity_contest()
     #test_cycle()
-    
+"""
 
