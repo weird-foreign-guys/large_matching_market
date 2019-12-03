@@ -88,35 +88,14 @@ def deferred_acceptance(male_prefs, female_prefs):
     return male_matches, female_matches
 
 
-# TODO; delete the test
-"""The test implementation is based on Cristi Burcà (2015) https://gist.github.com/scribu."""
-
-
-def test_popularity_contest():
-    """Every male has the same preferences as every other male; same for females."""
-    FEMALES = ["F1", "F2", "F3"]
-    MALES = ["M1", "M2", "M3", "M4", "M5"]
-
-    MALE_PREFS = {key: FEMALES.copy() for key in MALES}
-    FEMALE_PREFS = {key: MALES.copy() for key in FEMALES}
-
-    matches = deferred_acceptance(MALE_PREFS, FEMALE_PREFS)
-    print(matches)
-    print("{'M1': 'F1', 'M2': 'F2', 'M3': 'F3', 'M4': 'M4', 'M5': 'M5'}")
-    # assert matches == {'M1': 'F1', 'M2': 'F2', 'M3': 'F3', 'M4': 'M4', 'M5': 'M5'}
-
-
-def test_cycle():
-    """Males have different preferences, while females have identical preferences."""
+def test():
     MALE_PREFS = {"M1": ["F2", "F1"], "M2": ["F1", "F2"]}
     FEMALE_PREFS = {"F1": ["M1", "M2"], "F2": ["M2", "M1"]}
     matches = deferred_acceptance(MALE_PREFS, FEMALE_PREFS)
     print(matches)
     print("{'M1': 'F2', 'M2': 'F1'}")
-    # assert matches == {'M1': 'F2', 'M2': 'F1'}
 
 
 if __name__ == "__main__":
     pass
-    # test_popularity_contest()
-    # test_cycle()
+    # test()
