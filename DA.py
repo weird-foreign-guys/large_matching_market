@@ -88,12 +88,6 @@ def deferred_acceptance(male_prefs, female_prefs):
     return male_matches, female_matches
 
 
-# TODO; delete the test
-"""The test implementation is based on Cristi Burcà (2015) https://gist.github.com/scribu."""
-
-
-
-
 def test():
     MALE_PREFS = {"M1": ["F2", "F1"], "M2": ["F1", "F2"]}
     FEMALE_PREFS = {"F1": ["M1", "M2"], "F2": ["M2", "M1"]}
