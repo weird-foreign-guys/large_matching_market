@@ -1,66 +1,73 @@
 import argparse
 
+
 def get_arguments():
     parser = argparse.ArgumentParser(
         description="Approximate Strategy-Proofness in Large 2-Sided Matching Markets"
     )
 
     parser.add_argument(
-        "--rounds", "-r",
+        "--rounds",
+        "-r",
         type=int,
         default=1,
         help="Specify how many rounds the simulation should be run for, -1 for indefinitely",
     )
 
     parser.add_argument(
-        "--pref-length", "-k",
+        "--pref-length",
+        "-k",
         type=int,
         default=10,
-        help="At what length to cap the preference orderings of the first side"
+        help="At what length to cap the preference orderings of the first side",
     )
 
     parser.add_argument(
-        "--lower", "-l",
+        "--lower",
+        "-l",
         type=int,
         required=True,
-        help="What n to start the simulation with, inclusive"
+        help="What n to start the simulation with, inclusive",
     )
 
     parser.add_argument(
-        "--upper", "-u",
+        "--upper",
+        "-u",
         type=int,
         required=True,
-        help="The maximum n to run the simulation to, exclusive"
+        help="The maximum n to run the simulation to, exclusive",
     )
 
     parser.add_argument(
-        "--step", "-s",
+        "--step",
+        "-s",
         type=int,
         default=10,
-        help="How many agents to increase the market size with after completed simulation"
+        help="How many agents to increase the market size with after completed simulation",
     )
 
     parser.add_argument(
-        "--debug", "-d",
+        "--debug",
+        "-d",
         type=int,
         choices=[-1, 0, 1],
         default=0,
-        help="Set verbosity of the simulation, -1: no printing, 0: minimal amount, 1: maximal"
+        help="Set verbosity of the simulation, -1: no printing, 0: minimal amount, 1: maximal",
     )
 
     parser.add_argument(
         "--logging",
         type=bool,
         default=True,
-        help="Whether or not results should be written to file"
+        help="Whether or not results should be written to file",
     )
 
     parser.add_argument(
-        "--plot", "-p",
+        "--plot",
+        "-p",
         type=bool,
         default=False,
-        help="Whether results should be plotted upon completion or not"
+        help="Whether results should be plotted upon completion or not",
     )
 
     return parser.parse_args()
-

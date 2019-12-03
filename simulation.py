@@ -19,20 +19,21 @@ def simulation(rounds, lower, upper, step, debug, logging, plot, k):
     """
 
     output = {}
-    if(logging):
-        writer = Csv_writer(k,rounds,lower,upper)
+
+    if logging:
+        writer = Csv_writer(k, rounds, lower, upper)
 
     while rounds == -1 or rounds > 0:
         # debug = 0
-        for n in range(lower,upper,step):
+        for n in range(lower, upper, step):
             male_prefs, female_prefs = get_preferences(n, k)
             useful_deviators_cnt = count_useful_deviatiors(male_prefs, female_prefs)
             ratio = useful_deviators_cnt / float(n)
             output[n] = ratio
-            if(debug = 1:
+            if debug == 1:
                 print(f"result n={n}: ", ratio)
-            if(logging):
-                writer.write(n,ratio)
+            if logging:
+                writer.write(n, ratio)
         rounds -= 1
     print(output)
 

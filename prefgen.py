@@ -4,7 +4,8 @@ import numpy as np
 
 
 def exp(x, delta=0):
-    return np.exp(-x)
+    return np.exp(-x * 2)
+
 
 def lin(x, a=-0.5, delta=1):
     return a * x - a * delta + 1
@@ -93,7 +94,7 @@ def get_preferences(n, k):
     """
 
     delta = 2
-    p = distribution(n, delta, func=lin)
+    p = distribution(n, delta, func=exp)
 
     prefs1 = generate1(n, k, p)
     prefs2 = generate2(n, k, prefs1, p)

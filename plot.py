@@ -10,6 +10,7 @@ class Plotter:
         
     
     def plot(self,n,ratio):
+
         
 
 
