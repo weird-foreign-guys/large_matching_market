@@ -3,8 +3,11 @@ import math
 import numpy as np
 
 
-def exp(x):
+def exp(x, delta=0):
     return np.exp(-x)
+
+def lin(x, a=-0.5, delta=1):
+    return a * x - a * delta + 1
 
 
 def distribution(n, delta=2, func=exp):
@@ -16,7 +19,7 @@ def distribution(n, delta=2, func=exp):
 
     xs = np.linspace(start, end, n)
 
-    nums = func(xs)
+    nums = func(xs, delta=delta)
     probabilities = nums / nums.sum()
 
     prob_dict = {i: prob for i, prob in enumerate(probabilities)}
@@ -90,7 +93,7 @@ def get_preferences(n, k):
     """
 
     delta = 2
-    p = distribution(n, delta)
+    p = distribution(n, delta, func=lin)
 
     prefs1 = generate1(n, k, p)
     prefs2 = generate2(n, k, prefs1, p)

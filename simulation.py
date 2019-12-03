@@ -3,7 +3,7 @@ from prefgen import get_preferences
 from useful_deviation import count_useful_deviatiors
 
 
-def simulation(rounds,lower,upper,step,debug,logging,plot,k):
+def simulation(rounds, lower, upper, step, debug, logging, plot, k):
     """ Simulation function used in main. 
 
     Parameters:
@@ -18,7 +18,6 @@ def simulation(rounds,lower,upper,step,debug,logging,plot,k):
     """
 
     output = {}
-    rounds = 3
 
     while rounds == -1 or rounds > 0:
         # debug = 0
@@ -31,7 +30,7 @@ def simulation(rounds,lower,upper,step,debug,logging,plot,k):
         rounds -= 1
     print(output)
 
-    if write_to_file:
-        with open("da_results.csv", mode="w") as f:
-            for n, ratio in output.items():
-                f.write(f"{n},{ratio}\n")
+    # if write_to_file:
+    #     with open("da_results.csv", mode="w") as f:
+    #         for n, ratio in output.items():
+    #             f.write(f"{n},{ratio}\n")
