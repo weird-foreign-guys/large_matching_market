@@ -1,7 +1,7 @@
 import datetime
 
 
-class Csv_writer:
+class CsvWriter:
     def __init__(self, k, rounds, lower, upper):
         self.file = f"DATA/k={k}:rounds={rounds}:lower={lower}:upper={upper}:Date={datetime.datetime.now()}"
 

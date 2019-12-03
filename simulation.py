@@ -1,7 +1,7 @@
 import csv
 from prefgen import get_preferences
 from useful_deviation import count_useful_deviatiors
-import csv_writer
+from csv_writer import CsvWriter
 
 
 def simulation(rounds, lower, upper, step, debug, logging, plot, k):
@@ -21,7 +21,7 @@ def simulation(rounds, lower, upper, step, debug, logging, plot, k):
     output = {}
 
     if logging:
-        writer = Csv_writer(k, rounds, lower, upper)
+        writer = CsvWriter(k, rounds, lower, upper)
 
     while rounds == -1 or rounds > 0:
         # debug = 0
