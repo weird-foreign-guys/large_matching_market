@@ -1,4 +1,8 @@
 import csv
+from prefgen import get_preferences
+from useful_deviation import count_useful_deviatiors
+
+
 def simulation(rounds,lower,upper,step,debug,logging,plot,k):
     """ Simulation function used in main. 
 
@@ -16,7 +20,7 @@ def simulation(rounds,lower,upper,step,debug,logging,plot,k):
     output = {}
     rounds = 3
 
-    while rounds = -1 or rounds > 0:
+    while rounds == -1 or rounds > 0:
         # debug = 0
         for n in range(lower,upper,step):
             male_prefs, female_prefs = get_preferences(n, k)
