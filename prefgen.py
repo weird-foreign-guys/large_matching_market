@@ -3,13 +3,20 @@ import math
 import numpy as np
 
 
-def exp_prob(n, delta=2):
+def exp(x):
+    return np.exp(-x)
+
+
+def distribution(n, delta=2, func=exp):
+    """
+    Function that creates the probability distribution from the given function
+    """
     start = -delta
     end = delta
 
     xs = np.linspace(start, end, n)
 
-    nums = np.exp(-xs)
+    nums = func(xs)
     probabilities = nums / nums.sum()
 
     prob_dict = {i: prob for i, prob in enumerate(probabilities)}
@@ -25,7 +32,10 @@ def lin_prob(n):
     return [(n - i) / sum_ for i in range(n)]
 
 
-def generate1(n, k, p):
+def generate1(n: int, k: int, p: dict):
+    """
+    Function that generates the first set of preferences
+    """
     preferences = []
     choices = [i for i in range(n)]
     p = list(p.values())
@@ -36,7 +46,11 @@ def generate1(n, k, p):
     return preferences
 
 
-def generate2(n, k, preferences, p):
+def generate2(n: int, k: int, preferences: list, p: dict):
+    """
+    Function that, based on the first set of preferences
+    generates the second set of preferences
+    """
 
     # List to hold the choices the proposee has to choose
     # between when generating preferences
@@ -73,7 +87,7 @@ def generate2(n, k, preferences, p):
 def get_preferences(n, k):
 
     delta = 2
-    p = exp_prob(n, delta)
+    p = distribution(n, delta)
 
     prefs1 = generate1(n, k, p)
     prefs2 = generate2(n, k, prefs1, p)
@@ -90,4 +104,4 @@ if __name__ == "__main__":
     k = 5
 
     preferences = get_preferences(n, k)
-    print(preferences)
+    print(preferences[0])
