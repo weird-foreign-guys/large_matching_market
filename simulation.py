@@ -1,6 +1,7 @@
 import csv
 from prefgen import get_preferences
 from useful_deviation import count_useful_deviatiors
+import csv_writer
 
 
 def simulation(rounds, lower, upper, step, debug, logging, plot, k):
@@ -18,6 +19,8 @@ def simulation(rounds, lower, upper, step, debug, logging, plot, k):
     """
 
     output = {}
+    if(logging):
+        writer = Csv_writer(k,rounds,lower,upper)
 
     while rounds == -1 or rounds > 0:
         # debug = 0
@@ -26,7 +29,10 @@ def simulation(rounds, lower, upper, step, debug, logging, plot, k):
             useful_deviators_cnt = count_useful_deviatiors(male_prefs, female_prefs)
             ratio = useful_deviators_cnt / float(n)
             output[n] = ratio
-            print(f"result n={n}: ", ratio)
+            if(debug = 1:
+                print(f"result n={n}: ", ratio)
+            if(logging):
+                writer.write(n,ratio)
         rounds -= 1
     print(output)
 
