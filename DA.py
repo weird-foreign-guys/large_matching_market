@@ -32,7 +32,7 @@ def deferred_acceptance(male_prefs, female_prefs):
         unmatched_males = [
             male for male in male_prefs_copy.keys() if male not in male_matches
         ]
-        print("Unmatched_males: ", unmatched_males)
+        #print("Unmatched_males: ", unmatched_males)
         if unmatched_males == []:
             # end of the algorithm
             break
@@ -44,7 +44,7 @@ def deferred_acceptance(male_prefs, female_prefs):
             # propose to the most preferred female and update the male's preference
             female = male_prefs_copy[male].pop(0)
 
-            print("Trying %s with %s... " % (male, female), end="")
+            #print("Cheking %s with %s :" % (male, female), end="")
 
             prev_male = female_matches.get(female, None)
             # get male's index in female's preference order. None if not in preference order.
@@ -61,24 +61,31 @@ def deferred_acceptance(male_prefs, female_prefs):
             # print("this: ", this_male_index)
             if this_male_index == None:
                 # female rather be unmatched
-                print("rejected")
+                ##print("rejected")
+                pass
             elif prev_male_index == None:
                 # match
                 male_matches[male] = female
                 female_matches[female] = male
-                print("new match")
+                ##print("new match")
             elif prev_male_index > this_male_index:
                 # new match and delete old match
                 male_matches[male] = female
                 female_matches[female] = male
                 del male_matches[prev_male]
-                print("updated match")
+                ##print("updated match")
             else:
                 # female prefer current match
-                print("no change")
-    # print(matches)
+                ##print("no change")
+                pass
+
+    # fill "NA" for female_matches
+    for female in female_prefs.keys():
+        if female not in female_matches:
+            female_matches[female] = "NA"
+
     # return {male: matches[male] for male in male_prefs.keys()}
-    return male_matches
+    return male_matches, female_matches
 
 
 # TODO; delete the test
@@ -107,8 +114,8 @@ def test_cycle():
     # assert matches == {'M1': 'F2', 'M2': 'F1'}
 
 
-"""
 if __name__ == "__main__":
-    test_popularity_contest()
-    test_cycle()
-"""
+    #test_popularity_contest()
+    #test_cycle()
+    
+
