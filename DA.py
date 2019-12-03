@@ -32,7 +32,7 @@ def deferred_acceptance(male_prefs, female_prefs):
         unmatched_males = [
             male for male in male_prefs_copy.keys() if male not in male_matches
         ]
-        #print("Unmatched_males: ", unmatched_males)
+        # print("Unmatched_males: ", unmatched_males)
         if unmatched_males == []:
             # end of the algorithm
             break
@@ -44,7 +44,7 @@ def deferred_acceptance(male_prefs, female_prefs):
             # propose to the most preferred female and update the male's preference
             female = male_prefs_copy[male].pop(0)
 
-            #print("Cheking %s with %s :" % (male, female), end="")
+            # print("Cheking %s with %s :" % (male, female), end="")
 
             prev_male = female_matches.get(female, None)
             # get male's index in female's preference order. None if not in preference order.
@@ -90,6 +90,8 @@ def deferred_acceptance(male_prefs, female_prefs):
 
 # TODO; delete the test
 """The test implementation is based on Cristi Burcà (2015) https://gist.github.com/scribu."""
+
+
 def test_popularity_contest():
     """Every male has the same preferences as every other male; same for females."""
     FEMALES = ["F1", "F2", "F3"]
@@ -115,7 +117,6 @@ def test_cycle():
 
 
 if __name__ == "__main__":
-    #test_popularity_contest()
-    #test_cycle()
-    
-
+    pass
+    # test_popularity_contest()
+    # test_cycle()
