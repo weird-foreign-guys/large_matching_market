@@ -85,6 +85,9 @@ def generate2(n: int, k: int, preferences: list, p: dict):
 
 
 def get_preferences(n, k):
+    """
+    Get preferences for both sides of the market as dictionaries
+    """
 
     delta = 2
     p = distribution(n, delta)
