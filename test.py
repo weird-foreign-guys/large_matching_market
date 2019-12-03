@@ -10,7 +10,7 @@ write_to_file = True
 if __name__ == "__main__":
     k = 10
     output = {}
-    for n in range(20, 500, 20):
+    for n in range(900, 1001, 50):
         male_prefs, female_prefs = get_preferences(n, k)
         useful_deviators_cnt = count_useful_deviatiors(male_prefs, female_prefs)
         ratio = useful_deviators_cnt / float(n)
