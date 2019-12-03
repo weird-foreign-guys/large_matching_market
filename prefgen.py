@@ -4,10 +4,10 @@ import numpy as np
 
 
 def exp(x, delta=0):
-    return np.exp(-x * 2)
+    return np.exp(-x)
 
 
-def lin(x, a=-0.5, delta=1):
+def lin(x, a=-1, delta=1):
     return a * x - a * delta + 1
 
 
@@ -93,7 +93,7 @@ def get_preferences(n, k):
     Get preferences for both sides of the market as dictionaries
     """
 
-    delta = 2
+    delta = 3
     p = distribution(n, delta, func=exp)
 
     prefs1 = generate1(n, k, p)
