@@ -41,7 +41,7 @@ def count_useful_deviatiors(male_prefs, female_prefs):
     _, truthful_match = deferred_acceptance(male_prefs, female_prefs)
     dev_female_prefs = deepcopy(female_prefs)
     count = 0
-    # Run |females| "person has devaition" test
+    # Run |females| "person has deviation" test
     for female in female_prefs.keys():
         # Run O(|males|) devaiations for female, continue while devaitions are possbile
         while dev_female_prefs[female] != []:

@@ -11,6 +11,7 @@ write_to_file = True
 if __name__ == "__main__":
     k = 10
     output = {}
+<<<<<<< HEAD
     rounds = 3
     while loop or i > 0:
         for n in range(0,500,20):
@@ -20,6 +21,14 @@ if __name__ == "__main__":
             output[n] = ratio
             print(f"result n={n}: ", ratio)
         i -= 1
+=======
+    for n in range(900, 1001, 50):
+        male_prefs, female_prefs = get_preferences(n, k)
+        useful_deviators_cnt = count_useful_deviatiors(male_prefs, female_prefs)
+        ratio = useful_deviators_cnt / float(n)
+        output[n] = ratio
+        print(f"result n={n}: ", ratio)
+>>>>>>> 72781576c096727c8edfd5f39c528ade958c1f76
     print(output)
 
     if write_to_file:
