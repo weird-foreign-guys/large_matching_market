@@ -2,35 +2,41 @@ import os
 import glob
 from collections import defaultdict
 import matplotlib.pyplot as plt
+from operator import itemgetter
+from scipy.interpolate import spline
 
-# DATA/k=20;rounds=5;delta=10.txt
-def plot(ks=[10, 20], delta=3):
+
+def func(x, a, b, c):
+    return a * np.exp(-b * x) + c
+
+def plot(ks=[10, 15, 20], ds=[1.0,]):
     os.chdir("DATA")
 
-    for k in ks:
-        files = glob.glob(f"k={k};*d={delta};*")
+    for col, d in enumerate(ds, start=1):
+        # plt.subplot(1, len(ds), col)
+        for k in ks:
+            files = glob.glob(f"d={d};*k={k};*")
 
-        data = []
+            data = []
 
-        for file in files:
-            with open(file) as f:
-                data.extend(map(lambda x: x[:-1].split(";"), f.readlines()))
+            for file in files:
+                with open(file) as f:
+                    data.extend(map(lambda x: x[:-1].split(";"), f.readlines()))
 
-        data = list(map(lambda x: (int(x[0]), float(x[1].replace(",", "."))), data))
+            data = list(map(lambda x: (int(x[0]), float(x[1].replace(",", "."))), data))
 
-        agg_data = defaultdict(lambda: {"sum": 0, "n": 0})
+            agg_data = defaultdict(lambda: {"sum": 0, "n": 0})
 
-        for n, percentage in data:
-            agg_data[n]["sum"] += percentage
-            agg_data[n]["n"] += 1
+            for n, percentage in data:
+                agg_data[n]["sum"] += percentage
+                agg_data[n]["n"] += 1
 
-        print(agg_data)
+            dataseries = [(key, val["sum"] / val["n"]) for key, val in agg_data.items()]
 
-        dataseries = [(key, val["sum"] / val["n"]) for key, val in agg_data.items()]
+            dataseries = sorted(dataseries, key=itemgetter(0))
 
-        print(dataseries)
-
-        plt.plot(*zip(*dataseries))
+            plt.plot(*zip(*dataseries))
+            # plt.plot(spline(*zip(*dataseries), np.linspace(10, 300, 300)))
     plt.show()
 
 
