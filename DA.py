@@ -1,27 +1,14 @@
 """ This code implements the deferred acceptance algorithm by Gale and Shapley (1962)."""
 from copy import deepcopy
+from collections import deque
 
-"""
-function stable_matching {
-    Initialize all m ∈ M and w ∈ W to free
-    while ∃ free man m who still has a woman w to propose to {
-        w = first woman on m's list to whom m has not yet proposed
-        if w is free
-            (m, w) become engaged
-        else some pair (m', w) already exists
-            if w prefers m to m'
-                m' becomes free
-                (m, w) become engaged 
-            else
-                (m', w) remain engaged
-    }
-}
-"""
-
-# THIS DESTROYES MALE_PREFS!!
 def deferred_acceptance(male_prefs, female_prefs):
     # copy to avoid destrcuction
     male_prefs_copy = deepcopy(male_prefs)
+
+    # Use deque instead of list for male_prefs_copy for faster pop
+    # but keep list for female_prefs since we perfoem lookups
+    # male_prefs_copy = {(k,deque(v)) for (k,v) in male_prefs_copy.items()}
 
     # Initialize all male and female to free
     male_matches, female_matches = {}, {}
@@ -42,7 +29,8 @@ def deferred_acceptance(male_prefs, female_prefs):
                 break
             # propose to the most preferred female and update the male's preference
             female = male_prefs_copy[male].pop(0)
-            # TODO use deque instead of list
+            # female = male_prefs_copy[male].popleft()
+
             # print("Cheking %s with %s :" % (male, female), end="")
 
             # get male's index in female's preference order. None if not in preference order.
