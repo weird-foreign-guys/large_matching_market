@@ -18,7 +18,7 @@ def get_arguments():
         "--pref-length",
         "-k",
         type=int,
-        nargs='*',
+        nargs="*",
         default=10,
         help="At what length to cap the preference orderings of the first side",
     )
@@ -26,7 +26,7 @@ def get_arguments():
     parser.add_argument(
         "--delta",
         type=int,
-        nargs='*',
+        nargs="*",
         default=3,
         help="What amount of correlation the simulations are run",
     )
