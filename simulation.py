@@ -26,7 +26,7 @@ def simulation(rounds, lower, upper, step, debug, logging, plot, k):
     current_round = 0
 
     while rounds == -1 or rounds > current_round:
-
+        
         if debug != -1:
             print(f"\nStarting round {current_round + 1} out of {rounds}")
         
@@ -36,15 +36,11 @@ def simulation(rounds, lower, upper, step, debug, logging, plot, k):
             ratio = useful_deviators_cnt / float(n)
             output[n] = ratio
 
-            if debug == 1:
+            if debug == 1 or debug == 0:
                 print(f"result n={n}: ", ratio)
             
             if logging:
                 writer.write(n, ratio)
         current_round += 1
+    
     print(output)
-
-    # if write_to_file:
-    #     with open("da_results.csv", mode="w") as f:
-    #         for n, ratio in output.items():
-    #             f.write(f"{n},{ratio}\n")
