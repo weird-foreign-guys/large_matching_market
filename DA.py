@@ -9,7 +9,7 @@ def deferred_acceptance(male_prefs, female_prefs):
 
     # Use deque instead of list for male_prefs_copy for faster pop
     # but keep list for female_prefs since we perfoem lookups
-    for k,v in male_prefs_copy.items():
+    for k, v in male_prefs_copy.items():
         male_prefs_copy[k] = deque(v)
     # male_prefs_copy = {(k,deque(v)) for (k,v) in male_prefs_copy.items()}
 
@@ -27,7 +27,7 @@ def deferred_acceptance(male_prefs, female_prefs):
             break
         for male in unmatched_males:
             if not male_prefs_copy[male]:
-            #if male_prefs_copy[male] == []:
+                # if male_prefs_copy[male] == []:
                 # No more females to propose to. This male is permanently unmatched.
                 male_matches[male] = "NA"
                 break

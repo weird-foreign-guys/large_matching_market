@@ -9,7 +9,8 @@ from scipy.interpolate import spline
 def func(x, a, b, c):
     return a * np.exp(-b * x) + c
 
-def plot(ks=[10, 15, 20], ds=[1.0,]):
+
+def plot(ks=[10, 15, 20], ds=[1.0]):
     os.chdir("DATA")
 
     for col, d in enumerate(ds, start=1):
