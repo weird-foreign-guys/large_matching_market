@@ -3,8 +3,8 @@ import datetime
 
 class CsvWriter:
     #TODO add correlation 
-    def __init__(self, k, rounds, lower, upper):
-        self.file = f"DATA/k={k}:rounds={rounds}:lower={lower}:upper={upper}:Date={datetime.datetime.now()}"
+    def __init__(self,delta,k, rounds, lower, upper):
+        self.file = f"DATA/d={delta};k={k};lower={lower};upper={upper};date={datetime.datetime.now()}"
 
     def write(self, n, ratio):
         ratio = "0," + str(ratio)[2:]
