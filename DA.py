@@ -7,7 +7,7 @@ def deferred_acceptance(male_prefs, female_prefs):
     male_prefs_copy = deepcopy(male_prefs)
 
     # Use deque instead of list for male_prefs_copy for faster pop
-    # but keep list for female_prefs since we perfoem lookups
+    # but keep list for female_prefs since we perform lookups
     # male_prefs_copy = {(k,deque(v)) for (k,v) in male_prefs_copy.items()}
 
     # Initialize all male and female to free
