@@ -18,8 +18,18 @@ def get_arguments():
         "--pref-length",
         "-k",
         type=int,
-        default=10,
+        nargs="*",
+        default=[10],
         help="At what length to cap the preference orderings of the first side",
+    )
+
+    parser.add_argument(
+        "--delta",
+        "-d",
+        type=float,
+        nargs="*",
+        default=[1],
+        help="What amount of correlation the simulations are run",
     )
 
     parser.add_argument(
@@ -48,7 +58,6 @@ def get_arguments():
 
     parser.add_argument(
         "--debug",
-        "-d",
         type=int,
         choices=[-1, 0, 1],
         default=0,
@@ -68,6 +77,14 @@ def get_arguments():
         type=bool,
         default=False,
         help="Whether results should be plotted upon completion or not",
+    )
+
+    parser.add_argument(
+        "--meta",
+        "-m",
+        type=bool,
+        default=False,
+        help="Whether simulation should run for many settings until terminated",
     )
 
     return parser.parse_args()

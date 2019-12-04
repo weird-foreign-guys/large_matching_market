@@ -7,6 +7,7 @@ if __name__ == "__main__":
     print("Running simulation...")
 
     simulation(
+        meta=args.meta,
         rounds=args.rounds,
         lower=args.lower,
         upper=args.upper,
@@ -15,6 +16,7 @@ if __name__ == "__main__":
         logging=args.logging,
         plot=args.plot,
         k=args.pref_length,
+        delta=args.delta,
     )
 
     print("Simulation terminated.")

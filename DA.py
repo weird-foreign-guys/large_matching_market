@@ -2,6 +2,7 @@
 from copy import deepcopy
 from collections import deque
 
+
 def deferred_acceptance(male_prefs, female_prefs):
     # copy to avoid destrcuction
     male_prefs_copy = deepcopy(male_prefs)
