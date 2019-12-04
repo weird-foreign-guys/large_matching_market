@@ -19,15 +19,16 @@ def get_arguments():
         "-k",
         type=int,
         nargs="*",
-        default=10,
+        default=[10],
         help="At what length to cap the preference orderings of the first side",
     )
 
     parser.add_argument(
         "--delta",
+        "-d",
         type=int,
         nargs="*",
-        default=3,
+        default=[3],
         help="What amount of correlation the simulations are run",
     )
 
@@ -57,7 +58,6 @@ def get_arguments():
 
     parser.add_argument(
         "--debug",
-        "-d",
         type=int,
         choices=[-1, 0, 1],
         default=0,

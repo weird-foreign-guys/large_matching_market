@@ -7,10 +7,10 @@ from csv_writer import CsvWriter
 def inner_simulation(rounds, lower, upper, step, debug, logging, plot, k, delta):
     for d in delta:
         if debug == 0 or debug == 1:
-            print(f"running for delta={d}")
+            print(f"\nRunning for delta={d}")
         for pref_length in k:
             if debug == 0 or debug == 1:
-                print(f"running for k={pref_length}")
+                print(f"\nRunning for k={pref_length}")
             if logging:
                 writer = CsvWriter(d, pref_length, rounds, lower, upper)
             current_round = 0
@@ -27,7 +27,7 @@ def inner_simulation(rounds, lower, upper, step, debug, logging, plot, k, delta)
                     ratio = useful_deviators_cnt / float(n)
 
                     if debug == 1 or debug == 0:
-                        print(f"d={d}k={pref_length}: result n={n}: ", ratio)
+                        print(f"d={d} k={pref_length}: result n={n}: ", ratio)
 
                     if logging:
                         writer.write(n, ratio)
