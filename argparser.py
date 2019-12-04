@@ -26,7 +26,7 @@ def get_arguments():
     parser.add_argument(
         "--delta",
         "-d",
-        type=int,
+        type=float,
         nargs="*",
         default=[3],
         help="What amount of correlation the simulations are run",
