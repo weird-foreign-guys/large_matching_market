@@ -88,7 +88,7 @@ def generate2(n: int, k: int, preferences: list, p: dict):
     return new_preferences
 
 
-def get_preferences(n, k, delta):
+def get_preferences(n, k, delta=2):
     """
     Get preferences for both sides of the market as dictionaries
     """
