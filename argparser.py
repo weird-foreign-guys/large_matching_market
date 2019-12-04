@@ -28,7 +28,7 @@ def get_arguments():
         "-d",
         type=float,
         nargs="*",
-        default=[3],
+        default=[1],
         help="What amount of correlation the simulations are run",
     )
 
