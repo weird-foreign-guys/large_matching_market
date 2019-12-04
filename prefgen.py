@@ -88,12 +88,11 @@ def generate2(n: int, k: int, preferences: list, p: dict):
     return new_preferences
 
 
-def get_preferences(n, k):
+def get_preferences(n, k,delta):
     """
     Get preferences for both sides of the market as dictionaries
     """
 
-    delta = 3
     p = distribution(n, delta, func=exp)
 
     prefs1 = generate1(n, k, p)

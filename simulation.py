@@ -4,7 +4,7 @@ from useful_deviation import count_useful_deviatiors
 from csv_writer import CsvWriter
 
 
-def simulation(rounds, lower, upper, step, debug, logging, plot, k):
+def simulation(rounds, lower, upper, step, debug, logging, plot, k, delta):
     """ Simulation function used in main. 
 
     Parameters:
@@ -24,7 +24,7 @@ def simulation(rounds, lower, upper, step, debug, logging, plot, k):
         writer = CsvWriter(k, rounds, lower, upper)
 
     current_round = 0
-
+    
     while rounds == -1 or rounds > current_round:
         
         if debug != -1:
