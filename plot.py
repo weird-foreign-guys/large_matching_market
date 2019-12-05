@@ -10,7 +10,7 @@ def func(x, a, b, c):
     return a * np.exp(-b * x) + c
 
 
-def plot(ks=[10, 15, 20,40], ds=[0.05, 1.0, 3.0]):
+def plot(ks=[10, 15, 20, 40], ds=[0.05, 1.0, 3.0]):
     """
     A function that collects relevant data-files and combines
     them and plots the results
@@ -28,7 +28,7 @@ def plot(ks=[10, 15, 20,40], ds=[0.05, 1.0, 3.0]):
             for file in files:
                 with open(file) as f:
                     data.extend(map(lambda x: x[:-1].split(";"), f.readlines()))
-            
+
             # Do some initial cleaning of the data before it is put into a dictionary
             data = list(map(lambda x: (int(x[0]), float(x[1].replace(",", "."))), data))
 
@@ -42,9 +42,9 @@ def plot(ks=[10, 15, 20,40], ds=[0.05, 1.0, 3.0]):
             dataseries = [(key, val["sum"] / val["n"]) for key, val in agg_data.items()]
 
             dataseries = sorted(dataseries, key=itemgetter(0))
-    
+
             plt.plot(*zip(*dataseries), label=f"k={k}")
-    
+
         plt.legend()
         plt.title(f"ρ={d}")
 

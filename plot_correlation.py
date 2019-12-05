@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
+
 def func(x):
     return np.exp(-x)
 
@@ -10,6 +11,7 @@ def get_data(d):
     ydata = func(xdata)
 
     return xdata, ydata
+
 
 def subplot(index, d):
 
@@ -27,7 +29,6 @@ def plot():
     subplot(3, 3)
 
     plt.show()
-
 
 
 if __name__ == "__main__":
