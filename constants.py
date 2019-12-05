@@ -1,0 +1,2 @@
+PLOT = "plot"
+SIMULATION = "simulation"

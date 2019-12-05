@@ -4,7 +4,7 @@ from useful_deviation import count_useful_deviatiors
 from csv_writer import CsvWriter
 
 
-def inner_simulation(rounds, lower, upper, step, debug, logging, plot, k, delta):
+def inner_simulation(rounds, lower, upper, step, debug, logging, k, delta):
     for d in delta:
         if debug == 0 or debug == 1:
             print(f"\nRunning for delta={d}")
@@ -34,7 +34,7 @@ def inner_simulation(rounds, lower, upper, step, debug, logging, plot, k, delta)
                 current_round += 1
 
 
-def simulation(meta, rounds, lower, upper, step, debug, logging, plot, k, delta):
+def simulation(meta, rounds, lower, upper, step, debug, logging, k, delta):
     """ Simulation function used in main. 
 
     Parameters:
@@ -45,7 +45,6 @@ def simulation(meta, rounds, lower, upper, step, debug, logging, plot, k, delta)
     step (int): step per iteration
     debug (int): -1 no printing, 0 standard amount of printing, 1 max amount of printing, default = 0
     logging (boolean): True for writing to file, defualt = True
-    plot (boolean): True for plotting, only true if rounds != -1, default = False
     k (int): Length of preference lists, defualt = 10 
     """
 
@@ -55,6 +54,6 @@ def simulation(meta, rounds, lower, upper, step, debug, logging, plot, k, delta)
                 "Iteration rounds is set to infinite, select a fitting amount of iterations for each k and delta"
             )
         while True:
-            inner_simulation(rounds, lower, upper, step, debug, logging, plot, k, delta)
+            inner_simulation(rounds, lower, upper, step, debug, logging, k, delta)
     else:
-        inner_simulation(rounds, lower, upper, step, debug, logging, plot, k, delta)
+        inner_simulation(rounds, lower, upper, step, debug, logging, k, delta)

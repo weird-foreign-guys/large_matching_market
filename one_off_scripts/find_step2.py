@@ -16,4 +16,3 @@ for file in files:
     if data[0][0] == data[1][0] - 2:
         print("found!", file)
         break
-

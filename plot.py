@@ -11,17 +11,19 @@ def func(x, a, b, c):
     return a * np.exp(-b * x) + c
 
 
-def plot(ks=[10, 15, 20, 40], ds=[0.05, 1.0, 3.0], lower_lim=None, upper_lim=None):
+def plot(
+    pref_lengths=[10, 15, 20, 40], rhos=[0.05, 1.0, 3.0], lower_lim=None, upper_lim=None
+):
     """
     A function that collects relevant data-files and combines
     them and plots the results
     """
     os.chdir("DATA")
 
-    for col, d in enumerate(ds, start=1):
-        plt.subplot(1, len(ds), col)
+    for col, d in enumerate(rhos, start=1):
+        plt.subplot(1, len(rhos), col)
         datapoints = 0
-        for k in ks:
+        for k in pref_lengths:
             # Find all relevant files and put them in a list
             files = glob.glob(f"d={d};*k={k};*")
 
@@ -60,7 +62,6 @@ def plot(ks=[10, 15, 20, 40], ds=[0.05, 1.0, 3.0], lower_lim=None, upper_lim=Non
 
         plt.xlabel("n")
         plt.ylabel("D(n)/n")
-
 
     plt.show()
 
