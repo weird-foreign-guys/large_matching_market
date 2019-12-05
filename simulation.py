@@ -35,7 +35,8 @@ def inner_simulation(rounds, lower, upper, step, debug, logging, k, delta):
 
 
 def simulation(meta, rounds, lower, upper, step, debug, logging, k, delta):
-    """ Simulation function used in main. 
+    """
+    Simulation function used in main. 
 
     Parameters:
     meta (boolean): if true run huge datacollection 
