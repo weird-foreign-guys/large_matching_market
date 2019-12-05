@@ -13,7 +13,7 @@ The stable marriage problem is a problem where one tries tries to match agents o
 
 ## The Paper
 
-For more in depth information about this repository, the theory behind this, our results, and further steps that could be taken, read the paper found in this repository or click [here](https://google.com).
+For more in depth information about this repository, the theory behind this, our results, and further steps that could be taken, read the paper found in this repository or click [here](https://github.com/weird-foreign-guys/large_matching_market/blob/master/Approximate_Strategy_Proofness_in_Large_Markets.pdf).
 
 ## Running the Code
 
