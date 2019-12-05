@@ -21,7 +21,7 @@ def add_simulation_arguments(simulation_parser):
     )
 
     simulation_parser.add_argument(
-        "--delta",
+        "--correlation",
         "-d",
         type=float,
         nargs="*",
@@ -33,7 +33,7 @@ def add_simulation_arguments(simulation_parser):
         "--lower",
         "-l",
         type=int,
-        required=True,
+        default=10,
         help="What n to start the simulation with, inclusive",
     )
 
@@ -41,7 +41,7 @@ def add_simulation_arguments(simulation_parser):
         "--upper",
         "-u",
         type=int,
-        required=True,
+        default=100,
         help="The maximum n to run the simulation to, exclusive",
     )
 
