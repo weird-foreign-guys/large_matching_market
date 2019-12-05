@@ -51,11 +51,12 @@ Running with the help-flag will list all available arguments. Running without an
 
 - `--lower-limit` (`-l`) - Set the lower limit for the market size n (x-axis), inclusive, defaults to `None`, i.e. no lower limit
 - `--upper` (`-u`) - Set the upper limit for the market size n (x-axis), inclusive, defaults to `None`, i.e. no upper limit
-- `--step` (`-s`) - Set the step to increase the market size n with after simulation for specific n terminates, defaults to 10
+- `--rho` (`-r`) - Accepts a list of values of the correlation coefficient to plot for, every value gets its own subplot, defaults to [1.0]
+- `--pref-length` (`-k`) - Accepts a list of values of the preference order length k to plot for, ever k gets its own curve in the subplot for the same rho's, defaults to 10
 
-### Good commands to get started quickly
+## Some Examples to Get Started Quickly
 
-#### Quick test for k=10 delta=3 in the range [10, 100) with step length 10
+Quick test for k=10 delta=3 in the range [10, 100) with step length 10
 
 `python3 start.py simulation --lower 10 --upper 100 --step 10 --rounds 1`
 
