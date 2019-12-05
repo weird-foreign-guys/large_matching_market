@@ -52,11 +52,15 @@ Running with the help-flag will list all available arguments. Running without an
 - `--lower-limit` (`-l`) - Set the lower limit for the market size n (x-axis), inclusive, defaults to `None`, i.e. no lower limit
 - `--upper` (`-u`) - Set the upper limit for the market size n (x-axis), inclusive, defaults to `None`, i.e. no upper limit
 - `--rho` (`-r`) - Accepts a list of values of the correlation coefficient to plot for, every value gets its own subplot, defaults to [1.0]
-- `--pref-length` (`-k`) - Accepts a list of values of the preference order length k to plot for, ever k gets its own curve in the subplot for the same rho's, defaults to 10
+- `--pref-length` (`-k`) - Accepts a list of values of the preference order length k to plot for, every k gets its own curve in the subplot for the same rho's, defaults to 10
 
 ## Some Examples to Get Started Quickly
 
 ### Simulation
+
+- Running the simplest of all simulations with all settings set to their defaults
+
+`python3 start.py simulation`
 
 - Running a quick test, for preference ordering of length k=10 for the proposing side and correlation coefficient rho=3, in the range \[10, 100) with step length 10, for only one round:
 
@@ -69,3 +73,24 @@ Running with the help-flag will list all available arguments. Running without an
 - Running a simulation for one specific preference ordering lengt k=20, and one specific preference correlation rho=1, on a long interval of n=20 to n=1000 agents, inclusive (stops only when terminated by `ctrl` + `c`):
 
 `python3 start.py simulation --lower 20 --upper 1001 --step 10 --pref-length 20 --correlation 1 --meta True`
+
+### Plotting
+
+- Running the simplest of all plots with all settings set to their defaults
+
+`python3 start.py plot`
+
+- Plotting one graph for all data gathered for preference ordering length k=20 and for correlation coefficient rho=1:
+
+`python3 start.py plot --pref-length 20 --rho 1`
+
+With the data in this repo this displays something like the following:
+
+![Exampple plot for the above command](https://github.com/weird-foreign-guys/large_matching_market/blob/master/img/example_1.png)
+
+- Plotting three separete graphs in one row, each for a different value of the correlation coefficient rho, for a range of different preference lengths k, from market size n from 10 to 400:
+
+`python3 start.py plot --lower-limit 10 --upper-limit 400 --pref-length 10 15 20 40 --rho 0.05 1 3`
+
+![Exampple plot for the above command](https://github.com/weird-foreign-guys/large_matching_market/blob/master/img/example_2.png)
+
