@@ -3,15 +3,11 @@ import math
 import numpy as np
 
 
-def exp(x, delta=0):
+def exp(x):
     return np.exp(-x)
 
 
-def lin(x, a=-1, delta=1):
-    return a * x - a * delta + 1
-
-
-def distribution(n, delta=2, func=exp):
+def distribution(n: int, delta=2, func=exp):
     """
     Function that creates the probability distribution from the given function
     """
@@ -20,7 +16,7 @@ def distribution(n, delta=2, func=exp):
 
     xs = np.linspace(start, end, n)
 
-    nums = func(xs, delta=delta)
+    nums = func(xs)
     probabilities = nums / nums.sum()
 
     prob_dict = {i: prob for i, prob in enumerate(probabilities)}
@@ -88,7 +84,7 @@ def generate2(n: int, k: int, preferences: list, p: dict):
     return new_preferences
 
 
-def get_preferences(n, k, delta=2):
+def get_preferences(n: int, k: int, delta=2):
     """
     Get preferences for both sides of the market as dictionaries
     """
