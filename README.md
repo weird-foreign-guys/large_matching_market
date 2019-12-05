@@ -21,6 +21,8 @@ The easisest way to get started would be to `git clone` the repository to your l
 
 There are two main components of the code. The most important is the `simulation`-part, which is the code that runs simlation of matching markets and calculates the amount of agents that can usefully deviate. The other part is the `plot`ing part, which lets one plot the data that the simulation generates.
 
+## Documentation
+
 ### Simulation
 
 The simulation is started by running
@@ -29,11 +31,17 @@ The simulation is started by running
 
 Running with the help-flag will list all available arguments. Running without any arguments will run a very basic simulation with the market size going from n=10 to n=100 (exclusive), with a step-size of 10 and preference length of 10, and a correlation coefficient of 1.0. All of these parameteres can be changed and they are described in detail below. The command is the first, and the short-hand is in parenthesis.
 
-- `--lower` (`-l`) - Sets the lower limit for the market size n, inclusive, defaults to 10
-- `--upper` (`-u`) - Sets the upper limit for the market size n, exclusive, defaults to 100
+- `--lower` (`-l`) - Set the lower limit for the market size n, inclusive, defaults to 10
+- `--upper` (`-u`) - Set the upper limit for the market size n, exclusive, defaults to 100
+- `--step` (`-s`) - Set the step to increase the market size n with after simulation for specific n terminates, defaults to 10
 - `--pref-length` (`-k`) - Accepts a list of different values for the length of the propsing side's preference orders, defaults to [10]
 - `--correlation` (`-d`) - Accepts a list of correlation coefficients to run the simulation for, defaults to [1.0]
 - `--rounds` (`-r`) - Sets the amount of times the simulation should be run for each setting of preference-length and correlation coefficient, defaults to 1
+- `--debug` - Set the verbosity of the prints, -1 is no prints, 0 gives minimal information, 1 prints a lot of inner workings of DA-algorithm, defaults to 0
+- `--logging` - Set whether or not results should be written to file, defaults to true (probably only useful when developing and debugging)
+- `--meta` (`-m`) - If true this will make the simulation run loop through the above specified simulation indefinitely, until terminated, defaults to False
+
+### Plotting
 
 ### Good commands to get started quickly
 
