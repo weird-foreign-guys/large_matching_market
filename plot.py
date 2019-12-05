@@ -9,7 +9,7 @@ def func(x, a, b, c):
     return a * np.exp(-b * x) + c
 
 
-def plot(ks=[10, 15, 20], ds=[0.05, 1.0, 3.0]):
+def plot(ks=[10, 15, 20,40], ds=[0.05, 1.0, 3.0]):
     """
     A function that collects relevant data-files and combines
     them and plots the results
