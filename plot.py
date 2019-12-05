@@ -10,11 +10,15 @@ def func(x, a, b, c):
     return a * np.exp(-b * x) + c
 
 
-def plot(ks=[10, 15, 20], ds=[1.0]):
+def plot(ks=[10, 15, 20], ds=[0.05, 1.0, 3.0]):
+    """
+    A function that collects relevant data-files and combines
+    them and plots the results
+    """
     os.chdir("DATA")
 
     for col, d in enumerate(ds, start=1):
-        # plt.subplot(1, len(ds), col)
+        plt.subplot(1, len(ds), col)
         for k in ks:
             files = glob.glob(f"d={d};*k={k};*")
 
@@ -37,7 +41,6 @@ def plot(ks=[10, 15, 20], ds=[1.0]):
             dataseries = sorted(dataseries, key=itemgetter(0))
 
             plt.plot(*zip(*dataseries))
-            # plt.plot(spline(*zip(*dataseries), np.linspace(10, 300, 300)))
     plt.show()
 
 
