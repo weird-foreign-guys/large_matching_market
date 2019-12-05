@@ -26,7 +26,7 @@ def plot(ks=[10, 15, 20, 40], ds=[0.05, 1.0, 3.0]):
             # Initialize the array to hold the raw data from the files
             data = []
             for file in files:
-                with open(file) as f:
+                with open(file, mode="r") as f:
                     data.extend(map(lambda x: x[:-1].split(";"), f.readlines()))
 
             # Do some initial cleaning of the data before it is put into a dictionary
