@@ -92,5 +92,11 @@ With the data in this repo this displays something like the following:
 
 `python3 start.py plot --lower-limit 10 --upper-limit 400 --pref-length 10 15 20 40 --rho 0.05 1 3`
 
+This could look like the following:
+
 ![Exampple plot for the above command](https://github.com/weird-foreign-guys/large_matching_market/blob/master/img/example_2.png)
 
+
+## Feedback, Questions and Bugs
+
+We welcome all kinds of feedback or questions for this project. If you find bugs, please issue a bugreport using GitHub issues.
