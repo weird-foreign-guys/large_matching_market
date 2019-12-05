@@ -3,7 +3,6 @@ import glob
 from collections import defaultdict
 import matplotlib.pyplot as plt
 from operator import itemgetter
-from scipy.interpolate import spline
 
 
 def func(x, a, b, c):
