@@ -5,7 +5,6 @@
 _Final Project in CS 136: Economics and Computation, Harvard University, Fall 2019_
 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
-
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## Introduction
