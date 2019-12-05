@@ -1,4 +1,4 @@
-from DA import deferred_acceptance
+from deferred_acceptance import deferred_acceptance
 from copy import deepcopy
 
 
