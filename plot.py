@@ -41,7 +41,7 @@ def plot(ks=[10, 15, 20], ds=[0.05, 1.0, 3.0]):
             dataseries = [(key, val["sum"] / val["n"]) for key, val in agg_data.items()]
 
             dataseries = sorted(dataseries, key=itemgetter(0))
-
+    
             plt.plot(*zip(*dataseries), label=f"k={k}")
     
         plt.legend()
