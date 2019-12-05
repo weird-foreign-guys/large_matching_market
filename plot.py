@@ -3,6 +3,7 @@ import glob
 from collections import defaultdict
 import matplotlib.pyplot as plt
 from operator import itemgetter
+import numpy as np
 
 
 def func(x, a, b, c):
@@ -41,7 +42,7 @@ def plot(ks=[10, 15, 20,40], ds=[0.05, 1.0, 3.0]):
             dataseries = [(key, val["sum"] / val["n"]) for key, val in agg_data.items()]
 
             dataseries = sorted(dataseries, key=itemgetter(0))
-
+    
             plt.plot(*zip(*dataseries), label=f"k={k}")
     
         plt.legend()
