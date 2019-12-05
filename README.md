@@ -13,7 +13,7 @@ The stable marriage problem is a problem where one tries tries to match agents o
 
 ## The Paper
 
-For more in depth information about this repository, the theory behind this, our results, and further steps that could be taken, read the paper found in this repository or click [here](https://google.com).
+For more in depth information about this repository, the theory behind this, our results, and further steps that could be taken, read the paper found in this repository or click [here](https://github.com/weird-foreign-guys/large_matching_market/blob/master/Approximate_Strategy_Proofness_in_Large_Markets.pdf).
 
 ## Running the Code
 
@@ -56,10 +56,16 @@ Running with the help-flag will list all available arguments. Running without an
 
 ## Some Examples to Get Started Quickly
 
-Quick test for k=10 delta=3 in the range [10, 100) with step length 10
+### Simulation
+
+- Running a quick test, for preference ordering of length k=10 for the proposing side and correlation coefficient rho=3, in the range \[10, 100) with step length 10, for only one round:
 
 `python3 start.py simulation --lower 10 --upper 100 --step 10 --rounds 1`
 
-#### Running overnight in the lower range ([10, 400)) for a range of ks and deltas
+- Running a more comprehensive simulation in the lower range (from 10 to 400, inclusive) for a range of preference ordering lengtsh and correlation coefficients (stops only when terminated by `ctrl` + `c`):
 
-`python3 start.py simulation --lower 10 --upper 400 --step 10 -rounds 1 -k 10 20 30 -d 0.05 3 5`
+`python3 start.py simulation --lower 10 --upper 401 --step 10 --rounds 1 --pref-length 10 15 20 --correlation 0.05 1 3 --meta True`
+
+- Running a simulation for one specific preference ordering lengt k=20, and one specific preference correlation rho=1, on a long interval of n=20 to n=1000 agents, inclusive (stops only when terminated by `ctrl` + `c`):
+
+`python3 start.py simulation --lower 20 --upper 1001 --step 10 --pref-length 20 --correlation 1 --meta True`
