@@ -32,7 +32,7 @@ if __name__ == "__main__":
             debug=args.debug,
             logging=args.logging,
             k=args.pref_length,
-            delta=args.delta,
+            delta=args.correlation,
         )
 
         print("Simulation terminated.")

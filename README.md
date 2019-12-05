@@ -29,7 +29,7 @@ The simulation is started by running
 
 `python3 start.py simulation [-h] [args]`
 
-Running with the help-flag will list all available arguments. Running without any arguments will run a very basic simulation with the market size going from n=10 to n=100 (exclusive), with a step-size of 10 and preference length of 10, and a correlation coefficient of 1.0. All of these parameteres can be changed and they are described in detail below. The command is the first, and the short-hand is in parenthesis.
+Running with the help-flag will list all available arguments. Running without any arguments will run a very basic simulation with the market size going from n=10 to n=100 (exclusive), with a step-size of 10 and preference length of 10, and a correlation coefficient of 1.0. All of these parameteres can be changed and they are described in detail below. For each point below, the arguemnt comes first, and the short-hand is in parenthesis, if it exists.
 
 - `--lower` (`-l`) - Set the lower limit for the market size n, inclusive, defaults to 10
 - `--upper` (`-u`) - Set the upper limit for the market size n, exclusive, defaults to 100
@@ -42,6 +42,16 @@ Running with the help-flag will list all available arguments. Running without an
 - `--meta` (`-m`) - If true this will make the simulation run loop through the above specified simulation indefinitely, until terminated, defaults to False
 
 ### Plotting
+
+The plotting is started by running
+
+`python3 start.py plot [-h] [args]`
+
+Running with the help-flag will list all available arguments. Running without any arguments will run a very basic plot with the market size going from n=10 to n=400 (inclusive), for a correlation coefficient of 1.0 and preference length of k=10. All of these parameters can be changed and they are described in detail below. For each point below, the arguemnt comes first, and the short-hand is in parenthesis, if it exists.
+
+- `--lower-limit` (`-l`) - Set the lower limit for the market size n (x-axis), inclusive, defaults to `None`, i.e. no lower limit
+- `--upper` (`-u`) - Set the upper limit for the market size n (x-axis), inclusive, defaults to `None`, i.e. no upper limit
+- `--step` (`-s`) - Set the step to increase the market size n with after simulation for specific n terminates, defaults to 10
 
 ### Good commands to get started quickly
 
