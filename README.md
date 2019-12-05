@@ -1,5 +1,7 @@
 # Deferred Acceptance Deviation Simulator for Large Markets
 
+> Approximate strategy-proofness is the new strategy-proofness
+
 _Final Project in CS 136: Economics and Computation, Harvard University, Fall 2019_
 
 ## Introduction
