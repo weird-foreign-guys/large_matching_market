@@ -3,6 +3,7 @@ import glob
 from collections import defaultdict
 import matplotlib.pyplot as plt
 from operator import itemgetter
+import numpy as np
 
 
 def func(x, a, b, c):
